@@ -1,9 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
 }
 
+:root {
+  /* COLORS */
+  --color-background: #fdf200;
+  --color-primary: #e05263;
+  --color-secondary: #23c9ff;
+  --color-card: #fff;
+  --color-text: #000;
+
+  /* FONTS */
+  --font-headings: "Alfa Slab One", sans-serif;
+}
+
 body {
   margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-family: var(--font-headings);
 }
