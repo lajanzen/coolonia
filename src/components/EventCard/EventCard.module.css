@@ -6,6 +6,7 @@
   border: solid var(--color-border) 0.1em;
   border-radius: 1em;
   padding: 0.5em;
+  max-width: 30em;
 }
 
 .img {
