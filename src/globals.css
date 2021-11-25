@@ -13,9 +13,11 @@
   --color-secondary: #23c9ff;
   --color-card: #fff;
   --color-text: #000;
+  --color-border: #c4c4c4;
 
   /* FONTS */
   --font-headings: "Alfa Slab One", sans-serif;
+  --font-text: "Arial", sans-serif;
 }
 
 body {
@@ -29,4 +31,14 @@ h4,
 h5 {
   margin: 0;
   font-family: var(--font-headings);
+}
+
+h2 {
+  font-size: 0.9em;
+}
+
+p {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: 0.8em;
 }
