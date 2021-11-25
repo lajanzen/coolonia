@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import HeartIconEmpty from "../Icons/HeartIconEmpty";
 import HeartIconFilled from "../Icons/HeartIconFilled";
 import styles from "./EventCard.module.css";
@@ -10,6 +10,8 @@ type EventCardProps = {
   time: string;
   location: string;
   price: string;
+  liked: boolean;
+  onClick: () => void;
 };
 
 export default function EventCard({
@@ -19,9 +21,9 @@ export default function EventCard({
   time,
   location,
   price,
+  liked,
+  onClick,
 }: EventCardProps): JSX.Element {
-  const [isButtonClicked, setIsButtonClicked] = useState(false);
-
   const dateObject = new Date(date);
   const options: Intl.DateTimeFormatOptions = {
     weekday: "long",
@@ -40,11 +42,8 @@ export default function EventCard({
       </p>
       <p>{location}</p>
       <p>{price}</p>
-      <button
-        className={styles.button}
-        onClick={() => setIsButtonClicked(!isButtonClicked)}
-      >
-        {isButtonClicked ? <HeartIconEmpty /> : <HeartIconFilled />}
+      <button className={styles.button} onClick={onClick}>
+        {liked ? <HeartIconFilled /> : <HeartIconEmpty />}
       </button>
     </article>
   );
