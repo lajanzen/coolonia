@@ -1,0 +1,18 @@
+.radio {
+  display: none;
+}
+
+.label {
+  display: grid;
+  justify-content: center;
+  background-color: var(--color-secondary);
+  color: var(--color-card);
+  padding: 0.5em 1em;
+  font-family: var(--font-headings);
+  border-radius: 1em;
+  width: 5rem;
+}
+
+.radio:checked + label {
+  background-color: var(--color-primary);
+}
