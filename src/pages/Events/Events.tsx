@@ -93,9 +93,7 @@ export default function Events() {
           />
         ))}
       </div>
-      <div className={styles.logo}>
-        <LogoSmall />
-      </div>
+      <LogoSmall className={styles.logo} />
     </div>
   );
 }
