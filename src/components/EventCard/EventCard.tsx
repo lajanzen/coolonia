@@ -37,9 +37,8 @@ export default function EventCard({
     <article className={styles.container}>
       <img className={styles.img} src={imgSrc} alt="" />
       <h2 className={styles.eventName}>{name}</h2>
-      <p>
-        <span>{eventDate}</span> ◦ <span>{time}</span>
-      </p>
+      <p>{eventDate}</p>
+      <p>{time}</p>
       <p>{location}</p>
       <p>{price}</p>
       <button className={styles.button} onClick={onClick}>
