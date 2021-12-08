@@ -1,0 +1,2 @@
+### GET ALL EVENTS
+GET http://localhost:3001/api/events HTTP/1.1

@@ -1,8 +1,11 @@
 import express from "express";
 import path from "path";
+import router from "./routes";
 
 const port = process.env.PORT || 3001;
 const app = express();
+
+app.use("/api", router);
 
 app.get("/api/hello", (_request, response) => {
   response.json({ message: "Hello from server" });
