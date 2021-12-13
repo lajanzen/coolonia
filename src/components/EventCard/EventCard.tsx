@@ -10,8 +10,8 @@ type EventCardProps = {
   time: string;
   location: string;
   price: string;
-  liked: boolean;
-  onClick: () => void;
+  liked?: boolean;
+  onClick?: () => void;
 };
 
 export default function EventCard({

@@ -1,95 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EventCard from "../../components/EventCard/EventCard";
 import LogoSmall from "../../components/Icons/LogoSmall";
+import { Event } from "../../types";
 
 import styles from "./Events.module.css";
 
 export default function Events() {
   const [isLiked, setIsLiked] = useState(false);
+  const [events, setEvents] = useState([]);
 
-  const events = [
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Flohmarkt am Heumarkt",
-      date: "2021-12-12",
-      time: "11 bis 16 Uhr",
-      location: "Heumarkt",
-      price: "Kostenlos",
-      liked: true,
-      onClick: () => setIsLiked(!isLiked),
-    },
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Stadtteilbibliothek Mülheim - Gaming / E-Sports",
-      date: "2021-12-12",
-      time: "16 bis 18 Uhr",
-      location: "Stadtteilbibliothek Mülheim",
-      price: "Kostenlos",
-      liked: false,
-      onClick: () => setIsLiked(!isLiked),
-    },
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Orange Days: Podiumsdiskussion zum Thema Femizid",
-      date: "2021-12-12",
-      time: "11 bis 16 Uhr",
-      location: "Bogen 2",
-      price: "Kostenlos",
-      liked: true,
-      onClick: () => setIsLiked(!isLiked),
-    },
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Flohmarkt am Heumarkt",
-      date: "2021-12-12",
-      time: "11 bis 16 Uhr",
-      location: "Heumarkt",
-      price: "Kostenlos",
-      liked: true,
-      onClick: () => setIsLiked(!isLiked),
-    },
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Stadtteilbibliothek Mülheim - Gaming / E-Sports",
-      date: "2021-12-12",
-      time: "16 bis 18 Uhr",
-      location: "Stadtteilbibliothek Mülheim",
-      price: "Kostenlos",
-      liked: false,
-      onClick: () => setIsLiked(!isLiked),
-    },
-    {
-      imgSrc:
-        "https://mobil.ksta.de/image/25684552/2x1/600/300/f6b5575094f8698991e7455e5a22460b/my/flohmarkt-symbolimagolem50254643h.jpg",
-      name: "Orange Days: Podiumsdiskussion zum Thema Femizid",
-      date: "2021-12-12",
-      time: "11 bis 16 Uhr",
-      location: "Bogen 2",
-      price: "Kostenlos",
-      liked: true,
-      onClick: () => setIsLiked(!isLiked),
-    },
-  ];
+  useEffect(() => {
+    fetch("/api/events")
+      .then((response) => response.json())
+      .then((events) => setEvents(events));
+  }, []);
 
   return (
     <div className={styles.container}>
       <div className={styles.events}>
-        {events.map((event) => (
+        {events.map((event: Event) => (
           <EventCard
-            imgSrc={event.imgSrc}
-            name={event.name}
-            date={event.date}
+            imgSrc={
+              event.image == null
+                ? "https://images.unsplash.com/photo-1543145480-b8d11d3581a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80"
+                : event.image
+            }
+            name={event.title}
+            date={event.startDate}
             time={event.time}
             location={event.location}
-            price={event.price}
-            liked={event.liked}
-            onClick={event.onClick}
-            key={event.name}
+            price={event.fee}
+            key={event.link}
+            liked={isLiked}
+            onClick={() => setIsLiked(!isLiked)}
           />
         ))}
       </div>
