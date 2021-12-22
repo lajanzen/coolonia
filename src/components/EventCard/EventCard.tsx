@@ -3,6 +3,7 @@ import { Event } from "../../types";
 import HeartIconEmpty from "../Icons/HeartIconEmpty";
 import HeartIconFilled from "../Icons/HeartIconFilled";
 import styles from "./EventCard.module.css";
+import CologneImage from "../../assets/cgn-cathedral.jpeg";
 
 type EventCardProps = {
   content: Event;
@@ -30,11 +31,7 @@ export default function EventCard({
     <article className={styles.container}>
       <img
         className={styles.img}
-        src={
-          image == null
-            ? "https://images.unsplash.com/photo-1543145480-b8d11d3581a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=929&q=80"
-            : image
-        }
+        src={image == null ? CologneImage : image}
         alt=""
       />
       <h2 className={styles.eventName}>{title}</h2>
