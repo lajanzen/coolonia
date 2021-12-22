@@ -7,10 +7,13 @@
   justify-content: center;
   background-color: var(--color-secondary);
   color: var(--color-card);
-  padding: 0.5em 1em;
+  padding: 0.5em 1.5em;
   font-family: var(--font-headings);
-  border-radius: 1em;
-  width: 5rem;
+  font-size: 0.8em;
+  font-weight: bold;
+  border-radius: 0.9em;
+  width: max-content;
+  height: max-content;
 }
 
 .radio:checked + label {

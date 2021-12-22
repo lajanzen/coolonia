@@ -4,13 +4,20 @@ import styles from "./Tag.module.css";
 type TagProps = {
   tagName: string;
   value: string;
+  name: string;
 };
 
-export default function Tag({ tagName, value }: TagProps) {
+export default function Tag({ tagName, value, name }: TagProps) {
   return (
     <>
-      <input className={styles.radio} type="radio" id="input" value={value} />
-      <label htmlFor="input" className={styles.label}>
+      <input
+        name={name}
+        className={styles.radio}
+        type="radio"
+        id={value}
+        value={value}
+      />
+      <label htmlFor={value} className={styles.label}>
         {tagName}
       </label>
     </>
