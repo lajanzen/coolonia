@@ -7,12 +7,12 @@ export type Event = {
   image: string;
   time: string;
   location: string;
-  zip: number;
+  zip: string;
   city: string;
   district: string;
   area: string;
   street: string;
-  streetNumber: number;
+  streetNumber: string;
   transportation: string;
   latitude: number;
   longitude: number;
